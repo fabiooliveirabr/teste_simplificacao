@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Links - Prova FEPESE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gerador de Links para Provas FEPESE</h1>
+            <p>Gere links clicáveis para provas e gabaritos</p>
+        </header>
+
+        <main>
+            <div class="form-group">
+                <label for="baseUrl">URL Base:</label>
+                <input type="text" id="baseUrl" value="https://2025cppmf.fepese.org.br/">
+                <small>URL base onde os arquivos estão localizados</small>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group" style="flex: 2;">
+                    <label for="codigos">Códigos das Provas (separados por vírgula):</label>
+                    <textarea id="codigos" rows="4" placeholder="Ex: M1, M2, S01, S02">A1, A2, A3, M1, M2, M3, M4, S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, 1F1, 1F2, 1F3, 1F4, 1F5, 1F6, 1F7, 1M01, 1M02, 1M03, 1M04, 1M05, 1M06, 1M07, 1M08, 1M09, 1M10, 1M11, 1M12, 1S01, 1S02, 1S03, 1S04, 1S05, 1S06, 1S07, 1S08, 1S09, 1S10, 1S11, 1S12, 1S13, 1S14, 1S15, 1S16, 1S17, 1S18, 1S19, 1S20</textarea>
+                    <small>Digite os códigos separados por vírgula. Ex: M1, M2, S01</small>
+                </div>
+                
+                <div class="form-group" style="flex: 1;">
+                    <label for="data">Data do Gabarito:</label>
+                    <input type="date" id="data" value="">
+                    <small>Usada para formatar o nome do arquivo do gabarito (formato: gabarito_AAAAMMDD.pdf)</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="parametros">Parâmetros da URL:</label>
+                <input type="text" id="parametros" value="?go=download&amp;inline=1&amp;arquivo=">
+                <small>Parâmetros fixos da URL (incluir o arquivo=)</small>
+            </div>
+
+            <div class="button-group">
+                <button id="btnGerarProvas" class="btn btn-primary">📄 Gerar Links das Provas</button>
+                <button id="btnGerarGabaritos" class="btn btn-success">📊 Gerar Links dos Gabaritos</button>
+                <button id="btnGerarTudo" class="btn btn-info">🔗 Gerar Todos os Links</button>
+                <button id="btnLimpar" class="btn btn-secondary">🗑️ Limpar Resultados</button>
+            </div>
+
+            <div class="status" id="status"></div>
+
+            <div class="results-section">
+                <h2>Links Gerados</h2>
+                <div id="results" class="results-container">
+                    <p class="empty-message">Clique em um dos botões acima para gerar os links.</p>
+                </div>
+            </div>
+
+            <div class="summary" id="summary" style="display: none;">
+                <h3>Resumo</h3>
+                <div id="summaryContent"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
